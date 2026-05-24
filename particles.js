@@ -45,8 +45,15 @@
   function initParticles() {
     particles = [];
 
+    const isMobile = W < 768;
     const baseR = Math.min(W, H) * 0.055;
-    const rings = [
+    
+    // Scale down rings on mobile to reduce loop computations 11-fold!
+    const rings = isMobile ? [
+      { r: baseR * 1.5,  n: 8,  speed: 0.0007 },
+      { r: baseR * 2.8,  n: 12,  speed: 0.0005 },
+      { r: baseR * 4.2,  n: 16,  speed: 0.00035 },
+    ] : [
       { r: baseR * 1.4,  n: 10,  speed: 0.0007 },
       { r: baseR * 2.4,  n: 16,  speed: 0.0005 },
       { r: baseR * 3.5,  n: 24,  speed: 0.00035 },
@@ -82,14 +89,14 @@
       }
     });
 
-    // Ambient floating particles for depth
-    var ambientCount = Math.floor(Math.min(W, H) / 25);
+    // Ambient floating particles for depth (scaled down on mobile)
+    var ambientCount = Math.floor(Math.min(W, H) / (isMobile ? 50 : 25));
     for (var a = 0; a < ambientCount; a++) {
       particles.push({
         x: Math.random() * W,
         y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.15,
-        vy: (Math.random() - 0.5) * 0.15,
+        vx: (Math.random() - 0.5) * 0.12,
+        vy: (Math.random() - 0.5) * 0.12,
         size: 0.4 + Math.random() * 1.2,
         color: PARTICLE_COLOR,
         baseAlpha: 0.06 + Math.random() * 0.12,
@@ -172,7 +179,10 @@
         if (Math.abs(a.ring - b.ring) > 1) continue;
 
         var dx = a.x - b.x;
+        if (Math.abs(dx) > CONNECT_DIST) continue;
         var dy = a.y - b.y;
+        if (Math.abs(dy) > CONNECT_DIST) continue;
+
         var d = Math.sqrt(dx * dx + dy * dy);
 
         if (d < CONNECT_DIST) {

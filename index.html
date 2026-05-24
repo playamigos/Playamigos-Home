@@ -54,7 +54,7 @@
       <!-- Navigation -->
       <nav class="nav-pills" aria-label="Site navigation">
         <a href="#" class="nav-pill" id="blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
-        <a href="about.html" class="nav-pill" id="about-link">About</a>
+        <a href="#" class="nav-pill" id="about-link">About</a>
       </nav>
     </div>
 
@@ -74,6 +74,37 @@
     </footer>
 
   </div>
+
+  <!-- About Modal (Native Dialog) -->
+  <dialog class="about-modal" id="about-modal">
+    <div class="about-card">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <h2 class="logo">PlayAmigos</h2>
+      <p class="tagline" id="modal-tagline"></p>
+      
+      <div class="about-body">
+        <p>
+          <strong>PlayAmigos</strong> originally started a long time ago as a games publisher name—born back when my friends and I used to build games together. While those early projects have evolved, I wanted the name and that cooperative spirit to stick around.
+        </p>
+        <p>
+          Today, this hub serves as a curated collection of useful web apps crafted around <strong>learning</strong>, <strong>productivity</strong>, and <strong>fun games</strong>. Each app is designed to be simple, interactive, and genuinely helpful.
+        </p>
+        <p>
+          New apps are added regularly. You can
+          <a href="#" id="modal-blog-link" style="color: var(--accent-teal); border-bottom: 1px solid rgba(6, 182, 212, 0.3);">check out the blog</a>
+          to stay updated on new releases.
+        </p>
+        <p style="text-align: center; margin-top: var(--space-md); font-family: var(--font-display); font-weight: 700; color: var(--text-primary); letter-spacing: 0.02em;">
+          Stick around, have fun!
+        </p>
+      </div>
+    </div>
+  </dialog>
 
   <script src="particles.js"></script>
   <script src="app.js"></script>

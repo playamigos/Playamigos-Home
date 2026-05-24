@@ -24,6 +24,7 @@
     renderCategoryFilters();
     renderCards(apps);
     bindSearch();
+    bindAboutModal();
   }
 
   // ── Load site.json ──
@@ -45,6 +46,22 @@
       }
       if (footerEl && config.footerText) {
         footerEl.textContent = config.footerText;
+      }
+
+      // Fill modal configs dynamically
+      const modalTagline = document.getElementById('modal-tagline');
+      const modalBlogLink = document.getElementById('modal-blog-link');
+
+      if (modalBlogLink && config.blogUrl) {
+        modalBlogLink.href = config.blogUrl;
+      }
+      if (modalTagline && typeof config.tagline === 'string') {
+        if (config.tagline) {
+          modalTagline.textContent = config.tagline;
+          modalTagline.style.display = 'block';
+        } else {
+          modalTagline.style.display = 'none';
+        }
       }
     } catch (err) {
       console.warn('Could not load site.json:', err);
@@ -181,6 +198,35 @@
         searchInput.blur();
       }
     });
+  }
+
+  // ── About Modal ──
+  function bindAboutModal() {
+    const aboutLink = document.getElementById('about-link');
+    const aboutModal = document.getElementById('about-modal');
+    const modalClose = document.getElementById('modal-close');
+
+    if (aboutLink && aboutModal) {
+      aboutLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        aboutModal.showModal();
+      });
+    }
+
+    if (modalClose && aboutModal) {
+      modalClose.addEventListener('click', () => {
+        aboutModal.close();
+      });
+    }
+
+    // Close when clicking outside of modal card (on backdrop)
+    if (aboutModal) {
+      aboutModal.addEventListener('click', (e) => {
+        if (e.target === aboutModal) {
+          aboutModal.close();
+        }
+      });
+    }
   }
 
   // ── Utils ──

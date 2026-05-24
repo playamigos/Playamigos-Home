@@ -135,26 +135,26 @@ img, svg {
 }
 
 .bg-blob--teal {
-  width: 55vmax;
-  height: 55vmax;
+  width: 320px;
+  height: 320px;
   background: radial-gradient(circle, rgba(0, 180, 190, 0.45) 0%, transparent 70%);
-  top: -15%;
-  left: -15%;
+  top: -10%;
+  left: -10%;
   animation: blob-1 12s ease-in-out infinite;
 }
 
 .bg-blob--magenta {
-  width: 65vmax;
-  height: 65vmax;
+  width: 380px;
+  height: 380px;
   background: radial-gradient(circle, rgba(220, 20, 140, 0.5) 0%, transparent 70%);
-  bottom: -20%;
-  right: -15%;
+  bottom: -15%;
+  right: -10%;
   animation: blob-2 15s ease-in-out infinite;
 }
 
 .bg-blob--purple {
-  width: 50vmax;
-  height: 50vmax;
+  width: 300px;
+  height: 300px;
   background: radial-gradient(circle, rgba(100, 20, 200, 0.4) 0%, transparent 70%);
   top: 15%;
   left: 20%;
@@ -162,8 +162,8 @@ img, svg {
 }
 
 .bg-blob--pink {
-  width: 40vmax;
-  height: 40vmax;
+  width: 260px;
+  height: 260px;
   background: radial-gradient(circle, rgba(255, 50, 120, 0.35) 0%, transparent 70%);
   top: 35%;
   right: 5%;
@@ -171,8 +171,8 @@ img, svg {
 }
 
 .bg-blob--amber {
-  width: 45vmax;
-  height: 45vmax;
+  width: 280px;
+  height: 280px;
   background: radial-gradient(circle, rgba(245, 158, 11, 0.4) 0%, transparent 70%);
   bottom: 25%;
   left: 15%;
@@ -181,67 +181,67 @@ img, svg {
 
 @keyframes blob-1 {
   0% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0, 0, 0) scale(2.2) rotate(0deg);
   }
   33% {
-    transform: translate3d(22vw, 15vh, 0) scale(1.2) rotate(120deg);
+    transform: translate3d(22vw, 15vh, 0) scale(2.6) rotate(120deg);
   }
   66% {
-    transform: translate3d(-12vw, 25vh, 0) scale(0.85) rotate(240deg);
+    transform: translate3d(-12vw, 25vh, 0) scale(1.8) rotate(240deg);
   }
   100% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(360deg);
+    transform: translate3d(0, 0, 0) scale(2.2) rotate(360deg);
   }
 }
 
 @keyframes blob-2 {
   0% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(360deg);
+    transform: translate3d(0, 0, 0) scale(2.2) rotate(360deg);
   }
   33% {
-    transform: translate3d(-24vw, -15vh, 0) scale(0.9) rotate(240deg);
+    transform: translate3d(-24vw, -15vh, 0) scale(1.8) rotate(240deg);
   }
   66% {
-    transform: translate3d(15vw, -25vh, 0) scale(1.15) rotate(120deg);
+    transform: translate3d(15vw, -25vh, 0) scale(2.5) rotate(120deg);
   }
   100% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0, 0, 0) scale(2.2) rotate(0deg);
   }
 }
 
 @keyframes blob-3 {
   0% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0, 0, 0) scale(2.0) rotate(0deg);
   }
   50% {
-    transform: translate3d(18vw, -18vh, 0) scale(1.2) rotate(180deg);
+    transform: translate3d(18vw, -18vh, 0) scale(2.4) rotate(180deg);
   }
   100% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(360deg);
+    transform: translate3d(0, 0, 0) scale(2.0) rotate(360deg);
   }
 }
 
 @keyframes blob-4 {
   0% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(360deg);
+    transform: translate3d(0, 0, 0) scale(1.8) rotate(360deg);
   }
   50% {
-    transform: translate3d(-15vw, 18vh, 0) scale(0.85) rotate(180deg);
+    transform: translate3d(-15vw, 18vh, 0) scale(2.2) rotate(180deg);
   }
   100% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0, 0, 0) scale(1.8) rotate(0deg);
   }
 }
 
 @keyframes blob-5 {
   0% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0, 0, 0) scale(2.0) rotate(0deg);
   }
   50% {
-    transform: translate3d(-18vw, -12vh, 0) scale(1.15) rotate(180deg);
+    transform: translate3d(-18vw, -12vh, 0) scale(2.3) rotate(180deg);
   }
   100% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(360deg);
+    transform: translate3d(0, 0, 0) scale(2.0) rotate(360deg);
   }
 }
 
@@ -629,28 +629,49 @@ img, svg {
   opacity: 0.6;
 }
 
-/* ═══════════════════════════════════════════
-   ABOUT PAGE
-   ═══════════════════════════════════════════ */
+/* ── About Modal (Native Dialog) ── */
+.about-modal {
+  background: transparent;
+  border: none;
+  padding: 0;
+  max-width: 500px;
+  width: 92%;
+  outline: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  overflow: visible;
+  z-index: 100;
+}
 
-.about-page {
-  justify-content: center;
-  align-items: center;
-  padding: var(--space-xl);
+.about-modal::backdrop {
+  background: rgba(5, 5, 16, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Chrome/Safari native dialog animation */
+.about-modal[open] {
+  animation: modal-scale-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.about-modal[open]::backdrop {
+  animation: backdrop-fade 0.35s ease-out both;
 }
 
 .about-card {
-  max-width: 500px;
+  position: relative;
   width: 100%;
   padding: var(--space-xl);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(15, 15, 30, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(168, 85, 247, 0.1);
   text-align: center;
-  animation: card-enter 0.6s var(--ease-out) both;
 }
 
 .about-card .logo {
@@ -678,76 +699,116 @@ img, svg {
   font-weight: 600;
 }
 
-.about-back {
-  display: inline-flex;
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
   align-items: center;
-  gap: var(--space-xs);
-  margin-top: var(--space-xl);
-  font-size: 0.82rem;
-  font-family: var(--font-display);
-  font-weight: 600;
+  justify-content: center;
   color: var(--text-secondary);
-  transition: color var(--transition-base);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  z-index: 10;
 }
 
-.about-back:hover {
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
   color: var(--text-primary);
+  transform: scale(1.06);
 }
 
-.about-back svg {
-  width: 16px;
-  height: 16px;
-  transition: transform var(--transition-base);
+.modal-close svg {
+  width: 12px;
+  height: 12px;
 }
 
-.about-back:hover svg {
-  transform: translateX(-3px);
+@keyframes backdrop-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-scale-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -46%) scale(0.93);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 /* ═══════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════ */
 
-/* Small phones */
-@media (max-width: 480px) {
+/* Mobile & Tablets */
+@media (max-width: 768px) {
   .page {
-    padding: 0 var(--space-md) var(--space-sm);
-    padding-bottom: 4vh;
+    justify-content: flex-start;
+    padding-top: 14dvh; /* generous padding for beautiful negative space and logo safety */
+    padding-bottom: 3.5vh;
   }
 
   .logo {
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
   }
 
   .search-container {
     max-width: 100%;
+    margin-top: var(--space-sm);
+  }
+
+  .app-grid {
+    gap: var(--space-xs);
   }
 
   .app-card {
     width: 100%;
+    padding: var(--space-sm) var(--space-md);
   }
 
-  .app-grid {
-    gap: var(--space-sm);
-  }
-
-  .app-section {
-    max-height: 35vh;
-  }
-
-  .about-card {
-    padding: var(--space-xl) var(--space-lg);
+  /* GPU Savings: Hide pink and amber blurs on mobile, reduce blur radius on others */
+  .bg-blob--pink,
+  .bg-blob--amber {
+    display: none;
   }
 
   .bg-blob {
-    filter: blur(80px);
+    filter: blur(60px);
+  }
+
+  .about-card {
+    padding: var(--space-lg) var(--space-md);
   }
 }
 
-/* Tablets */
+/* Small phones */
+@media (max-width: 480px) {
+  .page {
+    padding-top: 14dvh;
+    padding-bottom: 3vh;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .app-section {
+    max-height: 44vh;
+  }
+}
+
+/* Tablets only */
 @media (min-width: 481px) and (max-width: 768px) {
   .app-card {
-    width: 260px;
+    width: 250px;
   }
 }
 
@@ -758,11 +819,11 @@ img, svg {
   }
 
   .app-card {
-    width: 300px;
+    width: 280px;
   }
 
   .search-container {
-    max-width: 440px;
+    max-width: 400px;
   }
 }
 
