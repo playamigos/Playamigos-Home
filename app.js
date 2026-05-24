@@ -20,7 +20,11 @@
 
   // ── Init ──
   async function init() {
-    await Promise.all([loadSiteConfig(), loadApps()]);
+    // Load layout settings in background (non-blocking)
+    loadSiteConfig();
+
+    // Load and render app tiles instantly
+    await loadApps();
     renderCategoryFilters();
     renderCards(apps);
     bindSearch();
