@@ -4,7 +4,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 /* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Matemasie&family=Quicksand:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Quicksand:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 /* ── Design Tokens ── */
 :root {
@@ -34,7 +34,7 @@
   --gradient-brand: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #06b6d4 100%);
 
   /* Typography */
-  --font-logo: 'Matemasie', cursive;
+  --font-logo: 'Fascinate', cursive;
   --font-display: 'Quicksand', sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 
