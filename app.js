@@ -49,7 +49,7 @@
         }
       }
       if (footerEl && config.footerText) {
-        footerEl.textContent = config.footerText;
+        footerEl.innerHTML = config.footerText;
       }
 
       // Fill modal configs dynamically
@@ -77,6 +77,21 @@
     try {
       const res = await fetch('apps.json');
       apps = await res.json();
+
+      // Inject custom fonts
+      const fontStyles = new Set();
+      apps.forEach(app => {
+        if (app.fontFamily && app.fontUrl) {
+          const rule = `@font-face { font-family: '${app.fontFamily}'; src: url('${app.fontUrl}'); font-display: swap; }`;
+          fontStyles.add(rule);
+        }
+      });
+
+      if (fontStyles.size > 0) {
+        const styleEl = document.createElement('style');
+        styleEl.textContent = Array.from(fontStyles).join('\n');
+        document.head.appendChild(styleEl);
+      }
     } catch (err) {
       console.warn('Could not load apps.json:', err);
       apps = [];
@@ -169,7 +184,7 @@
           onerror="this.style.display='none'"
         >
         <div class="app-card__info">
-          <span class="app-card__title">${escapeHtml(app.title)}</span>
+          <span class="app-card__title" ${app.fontFamily ? `style="font-family: '${escapeHtml(app.fontFamily)}';"` : ''}>${escapeHtml(app.title)}</span>
           <span class="app-card__desc">${escapeHtml(app.description)}</span>
           ${app.category ? `<span class="app-card__category">${escapeHtml(app.category)}</span>` : ''}
         </div>
@@ -240,10 +255,93 @@
     return div.innerHTML;
   }
 
+  // ── Idle Greet Bubble ──
+  function initGreetBubble() {
+    const logo = document.getElementById('site-logo');
+    const bubble = document.getElementById('greet-bubble');
+    if (!logo || !bubble) return;
+
+    let idleTime = 0;
+    let idleInterval = null;
+    let bubbleTimer;
+
+    const messages = [
+      "👋 Hola, Amigo!",
+      "Welcome to PlayAmigos! 🚀",
+      "Ready to learn something new today?",
+      "Boost your productivity! ⚡",
+      "Fact: Our apps use ZERO tracking. 🛡️",
+      "100% Ad-Free experiences. Always. 🚫📺",
+      "Most of our apps are completely free! 💸",
+      "Enjoy our generous lifelong free plans! 🎁",
+      "Your privacy is our priority. 🔒",
+      "Explore curated tools just for you! 🔍",
+      "We build with ❤️ for learners.",
+      "Stay focused, stay productive. 🎯",
+      "No hidden fees, no surprises. ✨",
+      "Building habits made simple. 🧱",
+      "Hello there! Have a great day! ☀️",
+      "Fact: We don't sell your data. Ever. 🛑",
+      "Level up your daily workflow! 📈",
+      "Tools designed for elegance and simplicity. 🎨",
+      "Greetings from the PlayAmigos team! 👋",
+      "Discover your next favorite app today! 💡"
+    ];
+
+    const showBubble = (specificMsg = null) => {
+      const msg = specificMsg || messages[Math.floor(Math.random() * messages.length)];
+      bubble.textContent = msg;
+      bubble.classList.add('show');
+      clearTimeout(bubbleTimer);
+      bubbleTimer = setTimeout(() => {
+        bubble.classList.remove('show');
+      }, 4000);
+    };
+
+    const triggerGlitch = () => {
+      document.body.classList.add('glitch-active');
+      setTimeout(() => {
+        document.body.classList.remove('glitch-active');
+        showBubble("The glitch is just to alert you, never mind! 😅");
+      }, 450); // Match new animation duration
+    };
+
+    const startIdleTracking = () => {
+      if (idleInterval) clearInterval(idleInterval);
+      idleTime = 0;
+      idleInterval = setInterval(() => {
+        idleTime++;
+        if (idleTime % 20 === 0) {
+          triggerGlitch();
+        } else if (idleTime % 5 === 0) {
+          showBubble();
+        }
+      }, 1000);
+    };
+
+    const resetIdle = () => {
+      startIdleTracking();
+    };
+
+    logo.addEventListener('click', () => {
+      showBubble();
+    });
+
+    const events = ['mousemove', 'mousedown', 'keypress', 'touchmove', 'scroll'];
+    events.forEach(evt => document.addEventListener(evt, resetIdle, true));
+
+    // Start initial timer
+    startIdleTracking();
+  }
+
   // ── Go ──
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', () => {
+      init();
+      initGreetBubble();
+    });
   } else {
     init();
+    initGreetBubble();
   }
 })();

@@ -4,5 +4,5 @@
   "blogUrl": "https://medium.com/@playamigos",
   "aboutUrl": "about.html",
   "githubUrl": "https://github.com/playamigos",
-  "footerText": "Made with ❤️ by PlayAmigos"
+  "footerText": "Made with ❤️ by <span class=\"logo-text\">PlayAmigos</span>"
 }

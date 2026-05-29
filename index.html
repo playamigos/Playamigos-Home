@@ -4,115 +4,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlayAmigos</title>
+  <title>PlayAmigos Hub</title>
   <meta name="description"
-    content="PlayAmigos is a collection of web apps for learning, productivity, games, and fun. Discover and explore all apps in one place.">
-  <meta property="og:title" content="PlayAmigos">
-  <meta property="og:description" content="Apps for learning, productivity & fun">
+    content="PlayAmigos is a curated collection of web applications designed for learning, productivity, and engaging experiences.">
+  <meta property="og:title" content="PlayAmigos Hub">
+  <meta property="og:description" content="Professional applications for learning and productivity.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#050510">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#f1f5f9">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
   
-  <!-- Preconnect to Google Fonts for 3x Faster Font Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Quicksand:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
-  <!-- Animated Gradient Background -->
-  <div class="bg-gradient" aria-hidden="true">
-    <div class="bg-blob bg-blob--teal"></div>
-    <div class="bg-blob bg-blob--purple"></div>
-    <div class="bg-blob bg-blob--magenta"></div>
-    <div class="bg-blob bg-blob--pink"></div>
-    <div class="bg-blob bg-blob--amber"></div>
+  <!-- Subtle colorful background for glass effect to shine -->
+  <div class="mesh-bg" aria-hidden="true">
+    <div class="mesh-blob blob-1"></div>
+    <div class="mesh-blob blob-2"></div>
+    <div class="mesh-blob blob-3"></div>
   </div>
 
-  <!-- Noise Overlay -->
-  <div class="bg-noise" aria-hidden="true"></div>
-
-  <!-- Particle Canvas -->
-  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <!-- Top Navigation (Floating Tiny Bar) -->
+  <div class="header-wrapper">
+    <header class="site-header glass-panel">
+      <div class="logo-wrapper">
+        <div class="logo logo-text" id="site-logo">PlayAmigos</div>
+        <div class="greet-bubble" id="greet-bubble">👋 Hola, Amigo!</div>
+      </div>
+      <nav class="nav-links" aria-label="Site navigation">
+        <a href="#" class="nav-link" id="blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
+        <button class="nav-link" id="about-link">About</button>
+      </nav>
+    </header>
+  </div>
 
   <!-- Page Content -->
   <div class="page">
-
     <!-- Centered Hero -->
-    <div class="hub-hero">
-      <h1 class="logo">PlayAmigos</h1>
-      <p class="tagline" id="tagline">apps for learning, productivity & fun</p>
+    <main class="hub-main">
+      <div class="hero-section">
+        <h1 class="hero-title">Discover Tools for Learning & Productivity</h1>
+        <p class="hero-subtitle" id="tagline">Explore our curated collection of applications.</p>
 
-      <!-- Search -->
-      <div class="search-container">
-        <input type="search" class="search-input" id="search-input" placeholder="Search apps…" autocomplete="off"
-          spellcheck="false">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="11" cy="11" r="8" />
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
+        <!-- Search -->
+        <div class="search-container">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="search" class="search-input glass-panel" id="search-input" placeholder="Search applications..." autocomplete="off" spellcheck="false">
+        </div>
       </div>
 
-      <!-- Navigation -->
-      <nav class="nav-pills" aria-label="Site navigation">
-        <a href="#" class="nav-pill" id="blog-link" target="_blank" rel="noopener noreferrer">Blog</a>
-        <a href="#" class="nav-pill" id="about-link">About</a>
-      </nav>
-    </div>
+      <!-- Category Filters -->
+      <div class="filter-section" id="filter-section"></div>
 
-    <!-- Category Filters -->
-    <div class="filter-section" id="filter-section"></div>
-
-    <!-- App Grid -->
-    <section class="app-section" aria-label="Apps">
-      <div class="app-grid" id="app-grid">
-        <!-- Cards rendered by JS -->
-      </div>
-    </section>
+      <!-- App Grid -->
+      <section class="app-section" aria-label="Applications">
+        <div class="app-grid" id="app-grid">
+          <!-- Cards rendered by JS -->
+        </div>
+      </section>
+    </main>
 
     <!-- Footer -->
     <footer class="site-footer" id="site-footer">
-      Made with ❤️ by PlayAmigos
+      <p class="copyright" id="footer-text">
+        &copy; <span class="logo-text">PlayAmigos</span>. All rights reserved.
+      </p>
     </footer>
 
   </div>
 
   <!-- About Modal (Native Dialog) -->
   <dialog class="about-modal" id="about-modal">
-    <div class="about-card">
+    <div class="about-card glass-panel">
       <button class="modal-close" id="modal-close" aria-label="Close modal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="18" y1="6" x2="6" y2="18"/>
           <line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
       </button>
-      <h2 class="logo">PlayAmigos</h2>
-      <p class="tagline" id="modal-tagline"></p>
+      <h2 class="modal-title">About <span class="logo-text">PlayAmigos</span></h2>
+      <p class="modal-subtitle" id="modal-tagline"></p>
       
       <div class="about-body">
         <p>
-          <strong>PlayAmigos</strong> originally started a long time ago as a games publisher name—born back when my friends and I used to build games together. While those early projects have evolved, I wanted the name and that cooperative spirit to stick around.
+          <strong class="logo-text">PlayAmigos</strong> is a curated collection of web applications crafted around <strong>learning</strong> and <strong>productivity</strong>. Each app is designed to be elegant, simple, and genuinely helpful for your daily tasks.
         </p>
         <p>
-          Today, this hub serves as a curated collection of useful web apps crafted around <strong>learning</strong>, <strong>productivity</strong>, and <strong>fun games</strong>. Each app is designed to be simple, interactive, and genuinely helpful.
-        </p>
-        <p>
-          New apps are added regularly. You can
-          <a href="#" id="modal-blog-link" style="color: var(--accent-teal); border-bottom: 1px solid rgba(6, 182, 212, 0.3);">check out the blog</a>
-          to stay updated on new releases.
-        </p>
-        <p style="text-align: center; margin-top: var(--space-md); font-family: var(--font-display); font-weight: 700; color: var(--text-primary); letter-spacing: 0.02em;">
-          Stick around, have fun!
+          New tools are added regularly. You can
+          <a href="#" id="modal-blog-link" class="text-link">visit our blog</a>
+          to stay updated on new releases and updates.
         </p>
       </div>
     </div>
   </dialog>
 
-  <script src="particles.js"></script>
   <script src="app.js"></script>
 </body>
 

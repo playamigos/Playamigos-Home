@@ -1,10 +1,12 @@
 [
   {
     "id": "forge",
-    "title": "Forge",
+    "title": "FORGE",
     "description": "Learning habit builder with lessons delivered everyday",
-    "logo": "logos/forge.svg",
+    "logo": "logos/forge.png",
     "url": "https://forge.playamigos.in",
-    "category": "Learning"
+    "category": "Learning",
+    "fontFamily": "Adumu",
+    "fontUrl": "fonts/Adumu.ttf"
   }
 ]
