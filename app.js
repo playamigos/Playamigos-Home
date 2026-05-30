@@ -186,7 +186,7 @@
           >
         </div>
         <div class="app-card__info">
-          <span class="app-card__title" ${app.fontFamily ? `style="font-family: '${escapeHtml(app.fontFamily)}';"` : ''}>${escapeHtml(app.title)}</span>
+          <span class="app-card__title" ${app.fontFamily ? `style="font-family: '${escapeHtml(app.fontFamily)}'; letter-spacing: 0.05em;"` : ''}>${escapeHtml(app.title)}</span>
           <span class="app-card__desc">${escapeHtml(app.description)}</span>
           ${app.category ? `<span class="app-card__category">${escapeHtml(app.category)}</span>` : ''}
         </div>

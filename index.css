@@ -128,7 +128,6 @@ svg {
 .mesh-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
   opacity: 0.8;
   animation: blob-float 8s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -138,7 +137,7 @@ svg {
   left: -10%;
   width: 50vw;
   height: 50vw;
-  background: #bfdbfe;
+  background: radial-gradient(closest-side, #bfdbfe, transparent);
   /* soft blue */
   animation-delay: 0s;
 }
@@ -148,7 +147,7 @@ svg {
   right: -10%;
   width: 60vw;
   height: 60vw;
-  background: #e9d5ff;
+  background: radial-gradient(closest-side, #e9d5ff, transparent);
   /* soft purple */
   animation-delay: -5s;
 }
@@ -159,7 +158,7 @@ svg {
   transform: translate(-50%, -50%);
   width: 40vw;
   height: 40vw;
-  background: #a7f3d0;
+  background: radial-gradient(closest-side, #a7f3d0, transparent);
   /* soft teal */
   animation-delay: -10s;
 }
